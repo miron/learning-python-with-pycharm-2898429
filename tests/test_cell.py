@@ -24,5 +24,20 @@ class TestCell(TestCase):
             else:
                 self.assertFalse(inactive_test_cell.future_state)
 
-    def test_update(self):
-        self.fail()
+    # def test_update(self):
+    #     self.fail()
+
+
+# class TestCell(TestCase):
+#     def test_set_future_state(self):
+#         # set up your test
+#         # only an active cell with 2 neighbors will have future_state = True
+#         active_cell = Cell((0, 0), (0, 0), active=True)
+#         for neighbor_count in range(9):
+#             active_cell.set_future_state(living_neighbors=neighbor_count)
+#             if neighbor_count == 2 or neighbor_count == 3:
+#                 self.assertTrue(active_cell.future_state, f'should be set up to remain active with {neighbor_count}, '
+#                                                           f'neighbors')
+#             else:
+#                 self.assertFalse(active_cell.future_state, f'should be set up to be inactive with {neighbor_count}, '
+#                                                            f'neighbors')
