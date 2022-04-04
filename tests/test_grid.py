@@ -45,8 +45,3 @@ class TestGrid(TestCase):
         self.assertFalse(test_grid.get_cell(2, 0).active)
         self.assertFalse(test_grid.get_cell(2, 1).active)
         self.assertFalse(test_grid.get_cell(2, 2).active)
-
-
-    def test_compute_future_states(self):
-        self.fail()
-
