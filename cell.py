@@ -32,7 +32,6 @@ class Cell(Rect):
         self.active = False
 
     def set_future_state(self, living_neighbors: int):
-        # self.future_state = True
         if self.active and (living_neighbors == 2 or living_neighbors == 3):
             self.future_state = True
         elif not self.active and living_neighbors == 3:
@@ -42,3 +41,4 @@ class Cell(Rect):
 
     def update(self):
         self.active = self.future_state
+        self.future_state = None

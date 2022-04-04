@@ -5,7 +5,7 @@ PADDING = 7
 
 
 class Grid:
-    def __init__(self, screen_dimensions: tuple, surface, width: int, height: int):
+    def __init__(self, screen_dimensions: tuple, width: int, height: int):
         self.width = width
         self.height = height
 
@@ -25,6 +25,15 @@ class Grid:
             output += "\n"
         return output
 
+    def get_cell(self, col: int, row: int):
+        if col < 0 or col >= self.width:
+            raise RuntimeError(
+                f"error getting cell at column {col}: expected column number between 0 and {self.width - 1}")
+        if row < 0 or row >= self.height:
+            raise RuntimeError(
+                f"error getting cell at row {row}: expected column number between 0 and {self.height - 1}")
+        return self.cells[row][col]
+
     def flip(self, col: int, row: int):
         if col < 0 or col >= self.width:
             raise RuntimeError(
@@ -42,7 +51,10 @@ class Grid:
                 cell.set_future_state(self.__count_living_neighbors(col_index, row_index))
 
     def update(self):
-        pass
+        self.__compute_future_states()
+        for row in self.cells:
+            for cell in row:
+                cell.update()
 
     def draw(self, surface):
         for row in self.cells:
