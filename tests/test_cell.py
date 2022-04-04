@@ -16,7 +16,6 @@ class TestCell(TestCase):
             else:
                 self.assertFalse(active_test_cell.future_state, f'future_state should be false for {neighbor_count} neighbors')
 
-        # Inactive cells should only be activated if they have exactly 3 neighbors
         inactive_test_cell = Cell((0, 0), (0, 0), active=False)
         for neighbor_count in range(9):
             inactive_test_cell.set_future_state(neighbor_count)

@@ -5,7 +5,7 @@ PADDING = 7
 
 
 class Grid:
-    def __init__(self, screen_dimensions: tuple, width: int, height: int):
+    def __init__(self, screen_dimensions: tuple, surface, width: int, height: int):
         self.width = width
         self.height = height
 
